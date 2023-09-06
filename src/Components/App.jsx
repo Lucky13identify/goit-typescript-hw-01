@@ -12,30 +12,26 @@ export const App = () => {
   const [result, setResult] = useState('');
   // eslint-disable-next-line no-unused-vars
   const [isCommaAllowed, setIsCommaAllowed] = useState(true);
+  // eslint-disable-next-line no-unused-vars
   const [isDecimalAllowed, setIsDecimalAllowed] = useState(true);
 
   const lastChar = task.charAt(task.length - 1);
+
   const conditions =
     lastChar !== '×' &&
     lastChar !== '/' &&
     lastChar !== '+' &&
     lastChar !== '-' &&
-    lastChar !== ',' &&
-    isDecimalAllowed;
+    lastChar !== ',';
 
   useEffect(() => {
     const handleKeyDown = event => {
       const key = event.key;
-      // const lastChar = task.charAt(task.length - 1);
 
-      if (Number(key)) {
+      if (Number(key) || (key === '0' && task !== '')) {
         setTask(prevState => prevState + key);
         setMathTask(prevState => prevState + key);
         setIsDecimalAllowed(true); // Разрешаем ввод запятой после цифр
-      } else if (key === '0') {
-        setTask(prevState => prevState + key);
-        setMathTask(prevState => prevState + key);
-        setIsDecimalAllowed(true); // Разрешаем ввод запятой после 0
       } else if (key === 'Backspace') {
         setTask('');
         setResult('');
@@ -66,11 +62,15 @@ export const App = () => {
           setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака плюс
         }
       } else if (key === ',') {
-        // Проверка на наличие запятой и знака уравнения после запятой
+        // Разрешаем ввод запятой после числа и перед оператором, только если нет другой запятой в числе
         if (
-          conditions &&
-          lastChar !== '.' // Добавляем точку в запрет, чтобы не вводить вторую запятую
-          // Проверяем, разрешена ли запятая
+          !task.endsWith(',') &&
+          lastChar !== ',' &&
+          Number(lastChar) &&
+          !task.endsWith('×') &&
+          !task.endsWith('/') &&
+          !task.endsWith('+') &&
+          !task.endsWith('-')
         ) {
           setTask(prevState => prevState + key);
           setMathTask(prevState => prevState + '.');
@@ -98,13 +98,12 @@ export const App = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [conditions, lastChar, mathTask]);
+  }, [conditions, lastChar, mathTask, task]);
 
   const handleButtonClick = e => {
     const value = e.target.textContent;
-    // const lastChar = task.charAt(task.length - 1); // Получаем последний символ из строки task
 
-    if (Number(value)) {
+    if (Number(value) || (value === '0' && task !== '')) {
       setTask(prevState => prevState + value);
       setMathTask(prevState => prevState + value);
       setIsCommaAllowed(true); // Разрешаем ввод запятой после цифр
@@ -118,7 +117,8 @@ export const App = () => {
       setMathTask('');
       setIsDecimalAllowed(true); // Разрешаем ввод запятой после очистки
     } else if (value === '×') {
-      if (conditions) {
+      if (true) {
+        console.log(value);
         setTask(prevState => prevState + value);
         setMathTask(prevState => prevState + '*');
         setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака умножения
@@ -142,13 +142,15 @@ export const App = () => {
         setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака плюс
       }
     } else if (value === ',') {
-      // Проверка на наличие запятой и знака уровнения после запятой
+      // Разрешаем ввод запятой только если нет другой запятой в числе
       if (
+        !task.endsWith(',') &&
         lastChar !== ',' &&
-        lastChar !== '/' &&
-        lastChar !== '+' &&
-        lastChar !== '-' &&
-        isDecimalAllowed // Проверяем, разрешена ли запятая
+        Number(lastChar) &&
+        !task.endsWith('×') &&
+        !task.endsWith('/') &&
+        !task.endsWith('+') &&
+        !task.endsWith('-')
       ) {
         setTask(prevState => prevState + value);
         setMathTask(prevState => prevState + '.');

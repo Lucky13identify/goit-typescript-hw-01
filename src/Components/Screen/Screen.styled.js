@@ -42,10 +42,6 @@ export const Container = styled.div`
 export const NumberText = styled.div`
   ${commonStyles}
 
-  /* white-space: nowrap;
-  overflow: hidden;
-  text-align: right; */
-
   @media (min-width: 920px) {
     margin-top: ${40 * 1.3}px;
     font-size: ${80 * 1.3}px;
@@ -54,8 +50,9 @@ export const NumberText = styled.div`
 
   &::after {
     content: '';
+
     display: ${({ pressed }) => (pressed === 'true' ? 'inline-block' : 'none')};
-    height: 90px;
+    height: 70px;
     width: 3px;
     background-color: #778899;
     animation: ${blinkAnimation} 1.7s infinite;
