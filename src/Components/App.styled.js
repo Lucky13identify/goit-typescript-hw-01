@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
+  /* width: 100%; */
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-left: 1px;
+  padding-right: 1px;
 
-  width: 412px;
+  min-width: 390px;
   background-color: #141414;
 
   @media (min-width: 920px) {

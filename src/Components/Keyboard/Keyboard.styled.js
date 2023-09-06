@@ -28,12 +28,13 @@ export const Container = styled.ul`
   justify-content: center;
   align-items: center;
   margin: auto;
+  max-width: 390px;
   padding: 15px;
   gap: 6px;
 
   @media (min-width: 920px) {
     margin: 0;
-    width: 412px;
+    max-width: 412px;
     padding: ${8 * 1.3}px;
     gap: ${6 * 1.2}px;
   }
