@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
   margin: auto;
   width: 440px;
   background-color: #141414;
 
-  /* @media (min-width: 460px) {
-    width: 440px;
-  } */
+  @media (min-width: 920px) {
+    display: flex;
+    justify-content: space-between;
+    width: ${400 * 3}px;
+    border-radius: 0 0 20px 20px;
+  }
 `;

@@ -30,22 +30,23 @@ export const Container = styled.ul`
   padding: 8px;
   gap: 6px;
 
-  /* @media (min-width: 460px) {
-    margin: auto;
-    width: 585px;
-    padding: 8px;
-    gap: 6px;
-  } */
+  @media (min-width: 920px) {
+    margin: 0;
+    width: ${418 * 1.3}px;
+    padding: ${8 * 1.3}px;
+    gap: ${6 * 1.3}px;
+  }
 `;
 
 export const Button = styled.button`
   ${commonStyles}
   background-color: #2f2f2f;
 
-  /* @media (min-width: 460px) {
-    width: 140px;
-    height: 140px;
-  } */
+  @media (min-width: 920px) {
+    width: ${100 * 1.3}px;
+    height: ${100 * 1.3}px;
+    font-size: ${40 * 1.3}px;
+  }
 
   ${hover}
 `;
@@ -54,10 +55,11 @@ export const ButtonOpperation = styled.button`
   ${commonStyles}
   background-color: #3D3F4A;
 
-  /* @media (min-width: 460px) {
-    width: 140px;
-    height: 140px;
-  } */
+  @media (min-width: 920px) {
+    width: ${100 * 1.3}px;
+    height: ${100 * 1.3}px;
+    font-size: ${40 * 1.3}px;
+  }
 
   ${hover}
 `;
@@ -66,10 +68,11 @@ export const ButtonResult = styled.button`
   ${commonStyles}
   background-color: #003853;
 
-  /* @media (min-width: 460px) {
-    width: 140px;
-    height: 140px;
-  } */
+  @media (min-width: 920px) {
+    width: ${100 * 1.3}px;
+    height: ${100 * 1.3}px;
+    font-size: ${40 * 1.3}px;
+  }
 
   ${hover}
 `;
@@ -81,10 +84,10 @@ export const ButtonAC = styled.button`
   background-color: #6d4b88;
   border-radius: 50px;
 
-  /* @media (min-width: 460px) {
-    width: 431px;
-    height: 140px;
-  } */
+  @media (min-width: 920px) {
+    width: ${311 * 1.3}px;
+    margin-right: ${1 * 1.3}px;
+  }
 
   ${hover}
 `;
@@ -96,11 +99,11 @@ export const ButtonZero = styled.button`
   background-color: #2f2f2f;
   border-radius: 50px;
 
-  /* @media (min-width: 460px) {
-    width: 287px;
-    margin-right: 1px;
-    height: 140px;
-  } */
+  @media (min-width: 920px) {
+    width: ${205 * 1.3}px;
+    margin-right: ${1 * 1.3}px;
+    height: ${100 * 1.3}px;
+  }
 
   ${hover}
 `;
