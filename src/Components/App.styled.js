@@ -5,7 +5,7 @@ export const Container = styled.div`
   box-sizing: border-box;
   padding-left: 1px;
   padding-right: 1px;
-  width: 412px;
+  width: 410px;
   background-color: #141414;
 
   @media (min-width: 920px) {

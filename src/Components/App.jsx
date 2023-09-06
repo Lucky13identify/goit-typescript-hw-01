@@ -8,7 +8,6 @@ import { Container } from './App.styled';
 
 export const App = () => {
   const [task, setTask] = useState('');
-  console.log(task);
   const [mathTask, setMathTask] = useState('');
   const [result, setResult] = useState('');
   // eslint-disable-next-line no-unused-vars

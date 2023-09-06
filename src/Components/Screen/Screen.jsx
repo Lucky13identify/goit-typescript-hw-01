@@ -10,7 +10,7 @@ export const Screen = ({ task, result }) => {
 
   useEffect(() => {
     document.addEventListener('keydown', e => {
-      if (e.key) {
+      if (Number(e.key)) {
         setIsButtonPressed(true);
         clearTimeout(timeoutId);
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -33,7 +33,7 @@ export const Screen = ({ task, result }) => {
       <NumberText pressed={isButtonPressed.toString()}>
         {task ? sliceText(formatStringWithNumbers(task)) : 0}
       </NumberText>
-      <NumberResult>{sliceText(formatStringWithNumbers(result))}</NumberResult>
+      <NumberResult>{formatStringWithNumbers(result)}</NumberResult>
     </Container>
   );
 };

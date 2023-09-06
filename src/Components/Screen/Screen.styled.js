@@ -64,9 +64,11 @@ export const NumberResult = styled.div`
   color: #a6a6a6;
   font-size: 40px;
   margin-top: 10px;
+  overflow: scroll;
 
   @media (min-width: 920px) {
     font-size: ${40 * 1.3}px;
     margin-top: ${10 * 1.3}px;
+    width: 500px;
   }
 `;
