@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const commonStyles = `
   color: white;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border: none;
   border-radius: 100%;
 
@@ -25,9 +25,9 @@ const hover = `
 export const Container = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin: auto;
-  width: 418px;
-  padding: 8px;
+  padding: 15px;
   gap: 6px;
 
   @media (min-width: 920px) {
@@ -79,8 +79,8 @@ export const ButtonResult = styled.button`
 
 export const ButtonAC = styled.button`
   ${commonStyles}
-  width: 311px;
-  margin-right: 1px;
+  width: 250px;
+  margin-right: 2px;
   background-color: #6d4b88;
   border-radius: 50px;
 
@@ -94,7 +94,7 @@ export const ButtonAC = styled.button`
 
 export const ButtonZero = styled.button`
   ${commonStyles}
-  width: 205px;
+  width: 165px;
   margin-right: 1px;
   background-color: #2f2f2f;
   border-radius: 50px;

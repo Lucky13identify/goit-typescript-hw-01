@@ -27,8 +27,8 @@ const blinkAnimation = keyframes`
 `;
 
 export const Container = styled.div`
-  height: 190px;
-  width: 411px;
+  height: 220px;
+  /* width: 410px; */
   padding: 15px;
   background-color: #23232a;
   border-radius: 0 0 20px 20px;
