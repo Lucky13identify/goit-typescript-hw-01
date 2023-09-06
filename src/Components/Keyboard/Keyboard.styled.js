@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const commonStyles = `
   color: white;
-  width: 80px;
-  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
   border: none;
   border-radius: 100%;
 
@@ -34,7 +34,7 @@ export const Container = styled.ul`
 
   @media (min-width: 920px) {
     margin: 0;
-    max-width: 412px;
+    min-width: 412px;
     padding: ${8 * 1.3}px;
     gap: ${6 * 1.2}px;
   }
@@ -45,8 +45,8 @@ export const Button = styled.button`
   background-color: #2f2f2f;
 
   @media (min-width: 920px) {
-    width: ${80 * 1.2}px;
-    height: ${80 * 1.2}px;
+    min-width: ${80 * 1.2}px;
+    min-height: ${80 * 1.2}px;
     font-size: ${40 * 1.2}px;
   }
 
@@ -58,8 +58,8 @@ export const ButtonOpperation = styled.button`
   background-color: #3D3F4A;
 
   @media (min-width: 920px) {
-    width: ${80 * 1.2}px;
-    height: ${80 * 1.2}px;
+    min-width: ${80 * 1.2}px;
+    min-height: ${80 * 1.2}px;
     font-size: ${40 * 1.2}px;
   }
 
@@ -71,8 +71,8 @@ export const ButtonResult = styled.button`
   background-color: #003853;
 
   @media (min-width: 920px) {
-    width: ${80 * 1.2}px;
-    height: ${80 * 1.2}px;
+    min-width: ${80 * 1.2}px;
+    min-height: ${80 * 1.2}px;
     font-size: ${40 * 1.2}px;
   }
 
@@ -81,7 +81,7 @@ export const ButtonResult = styled.button`
 
 export const ButtonAC = styled.button`
   ${commonStyles}
-  width: 250px;
+  min-width: 250px;
   margin-right: 2px;
   background-color: #6d4b88;
   border-radius: 50px;
@@ -96,15 +96,15 @@ export const ButtonAC = styled.button`
 
 export const ButtonZero = styled.button`
   ${commonStyles}
-  width: 165px;
+  min-width: 165px;
   margin-right: 1px;
   background-color: #2f2f2f;
   border-radius: 50px;
 
   @media (min-width: 920px) {
-    width: ${165 * 1.2}px;
+    min-width: ${165 * 1.2}px;
     margin-right: ${1 * 1.2}px;
-    height: ${80 * 1.2}px;
+    min-height: ${80 * 1.2}px;
   }
 
   ${hover}
