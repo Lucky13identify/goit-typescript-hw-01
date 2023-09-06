@@ -8,6 +8,7 @@ import { Container } from './App.styled';
 
 export const App = () => {
   const [task, setTask] = useState('');
+  console.log(task);
   const [mathTask, setMathTask] = useState('');
   const [result, setResult] = useState('');
   // eslint-disable-next-line no-unused-vars
@@ -24,6 +25,27 @@ export const App = () => {
     lastChar !== '-' &&
     lastChar !== ',';
 
+  const specialContitions =
+    !task.endsWith(',') &&
+    lastChar !== ',' &&
+    Number(lastChar) &&
+    !task.endsWith('×') &&
+    !task.endsWith('/') &&
+    !task.endsWith('+') &&
+    !task.endsWith('-');
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const giveResult = () => {
+    try {
+      let mathExpression = mathTask.replace(/,/g, '.');
+      const result = evaluate(mathExpression);
+      const formattedResult = result.toLocaleString('ru-RU');
+      setResult(formattedResult);
+    } catch (error) {
+      Notiflix.Notify.warning('Error expression. Try again!');
+    }
+  };
+
   useEffect(() => {
     const handleKeyDown = event => {
       const key = event.key;
@@ -31,65 +53,44 @@ export const App = () => {
       if (Number(key) || (key === '0' && task !== '')) {
         setTask(prevState => prevState + key);
         setMathTask(prevState => prevState + key);
-        setIsDecimalAllowed(true); // Разрешаем ввод запятой после цифр
+        setIsDecimalAllowed(true);
       } else if (key === 'Backspace') {
         setTask('');
         setResult('');
         setMathTask('');
-        setIsDecimalAllowed(true); // Разрешаем ввод запятой после очистки
+        setIsDecimalAllowed(true);
       } else if (key === 'x' || key === 'X' || key === 'ч' || key === 'Ч') {
         if (conditions) {
           setTask(prevState => prevState + '×');
           setMathTask(prevState => prevState + '*');
-          setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака умножения
+          setIsDecimalAllowed(true);
         }
       } else if (key === '/') {
         if (conditions) {
           setTask(prevState => prevState + '÷');
           setMathTask(prevState => prevState + '/');
-          setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака деления
+          setIsDecimalAllowed(true);
         }
       } else if (key === '-') {
         if (conditions) {
           setTask(prevState => prevState + key);
           setMathTask(prevState => prevState + key);
-          setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака минус
+          setIsDecimalAllowed(true);
         }
       } else if (key === '+') {
         if (conditions) {
           setTask(prevState => prevState + key);
           setMathTask(prevState => prevState + key);
-          setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака плюс
+          setIsDecimalAllowed(true);
         }
       } else if (key === ',') {
-        // Разрешаем ввод запятой после числа и перед оператором, только если нет другой запятой в числе
-        if (
-          !task.endsWith(',') &&
-          lastChar !== ',' &&
-          Number(lastChar) &&
-          !task.endsWith('×') &&
-          !task.endsWith('/') &&
-          !task.endsWith('+') &&
-          !task.endsWith('-')
-        ) {
+        if (specialContitions) {
           setTask(prevState => prevState + key);
           setMathTask(prevState => prevState + '.');
-          setIsDecimalAllowed(false); // Запрещаем ввод дополнительной запятой
+          setIsDecimalAllowed(false);
         }
       } else if (key === '=') {
-        try {
-          const result = evaluate(mathTask);
-          const stringResult = result.toString();
-
-          if (stringResult.includes('.')) {
-            const finalResult = stringResult.replace('.', ',');
-            setResult(finalResult);
-          } else {
-            setResult(stringResult);
-          }
-        } catch (error) {
-          Notiflix.Notify.warning('Error expression. Try again!');
-        }
+        giveResult();
       }
     };
 
@@ -98,7 +99,7 @@ export const App = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [conditions, lastChar, mathTask, task]);
+  }, [conditions, giveResult, lastChar, mathTask, specialContitions, task]);
 
   const handleButtonClick = e => {
     const value = e.target.textContent;
@@ -106,70 +107,48 @@ export const App = () => {
     if (Number(value) || (value === '0' && task !== '')) {
       setTask(prevState => prevState + value);
       setMathTask(prevState => prevState + value);
-      setIsCommaAllowed(true); // Разрешаем ввод запятой после цифр
+      setIsCommaAllowed(true);
     } else if (value === '0') {
       setTask(prevState => prevState + value);
       setMathTask(prevState => prevState + value);
-      setIsDecimalAllowed(true); // Разрешаем ввод запятой после 0
+      setIsDecimalAllowed(true);
     } else if (value === 'AC') {
       setTask('');
       setResult('');
       setMathTask('');
-      setIsDecimalAllowed(true); // Разрешаем ввод запятой после очистки
+      setIsDecimalAllowed(true);
     } else if (value === '×') {
-      if (true) {
-        console.log(value);
+      if (conditions) {
         setTask(prevState => prevState + value);
         setMathTask(prevState => prevState + '*');
-        setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака умножения
+        setIsDecimalAllowed(true);
       }
     } else if (value === '÷') {
       if (conditions) {
         setTask(prevState => prevState + value);
         setMathTask(prevState => prevState + '/');
-        setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака деления
+        setIsDecimalAllowed(true);
       }
     } else if (value === '-') {
       if (conditions) {
         setTask(prevState => prevState + value);
         setMathTask(prevState => prevState + value);
-        setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака минус
+        setIsDecimalAllowed(true);
       }
     } else if (value === '+') {
       if (conditions) {
         setTask(prevState => prevState + value);
         setMathTask(prevState => prevState + value);
-        setIsDecimalAllowed(true); // Разрешаем ввод запятой после знака плюс
+        setIsDecimalAllowed(true);
       }
     } else if (value === ',') {
-      // Разрешаем ввод запятой только если нет другой запятой в числе
-      if (
-        !task.endsWith(',') &&
-        lastChar !== ',' &&
-        Number(lastChar) &&
-        !task.endsWith('×') &&
-        !task.endsWith('/') &&
-        !task.endsWith('+') &&
-        !task.endsWith('-')
-      ) {
+      if (specialContitions) {
         setTask(prevState => prevState + value);
         setMathTask(prevState => prevState + '.');
-        setIsDecimalAllowed(false); // Запрещаем ввод дополнительной запятой
+        setIsDecimalAllowed(false);
       }
     } else if (value === '=') {
-      try {
-        const result = evaluate(mathTask);
-        const stringResult = result.toString();
-
-        if (stringResult.includes('.')) {
-          const finalResult = stringResult.replace('.', ',');
-          setResult(finalResult);
-        } else {
-          setResult(stringResult);
-        }
-      } catch (error) {
-        Notiflix.Notify.warning('Error expression. Try again!');
-      }
+      giveResult();
     }
   };
 

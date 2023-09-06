@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* width: 100%; */
   margin: 0 auto;
   box-sizing: border-box;
   padding-left: 1px;
   padding-right: 1px;
-
-  width: 390px;
+  width: 412px;
   background-color: #141414;
 
   @media (min-width: 920px) {

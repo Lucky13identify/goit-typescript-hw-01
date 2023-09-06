@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const commonStyles = `
   display: flex;
   align-items: center;
-    justify-content: center;
+  justify-content: center;
   color: white;
   width: 80px;
   height: 80px;
@@ -33,6 +33,7 @@ export const Container = styled.ul`
   align-items: center;
   margin: auto;
   width: 360px;
+  height: 500px;
   padding: 15px;
   gap: 6px;
 

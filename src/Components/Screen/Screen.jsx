@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Container, NumberText, NumberResult } from './Screen.styled';
 import { sliceText } from 'Helpers/SliceText';
+import { formatStringWithNumbers } from 'Helpers/FormatString';
 
 export const Screen = ({ task, result }) => {
   const [isButtonPressed, setIsButtonPressed] = useState(false);
@@ -30,9 +31,9 @@ export const Screen = ({ task, result }) => {
   return (
     <Container>
       <NumberText pressed={isButtonPressed.toString()}>
-        {task ? sliceText(task) : 0}
+        {task ? sliceText(formatStringWithNumbers(task)) : 0}
       </NumberText>
-      <NumberResult>{sliceText(result)}</NumberResult>
+      <NumberResult>{sliceText(formatStringWithNumbers(result))}</NumberResult>
     </Container>
   );
 };
