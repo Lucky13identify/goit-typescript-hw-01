@@ -27,14 +27,14 @@ const blinkAnimation = keyframes`
 `;
 
 export const Container = styled.div`
-  min-height: 220px;
+  height: 220px;
   /* width: 410px; */
   padding: 15px;
   background-color: #23232a;
   border-radius: 0 0 20px 20px;
 
   @media (min-width: 920px) {
-    min-height: 600px;
+    height: 600px;
     padding: ${15 * 1.3}px;
   }
 `;
@@ -49,7 +49,7 @@ export const NumberText = styled.div`
   @media (min-width: 920px) {
     margin-top: ${40 * 1.3}px;
     font-size: ${80 * 1.3}px;
-    min-width: 510px;
+    width: 510px;
   }
 
   &::after {

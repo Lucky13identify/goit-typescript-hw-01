@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 const commonStyles = `
+  display: flex;
+  align-items: center;
+    justify-content: center;
   color: white;
-  min-width: 80px;
-  min-height: 80px;
+  width: 80px;
+  height: 80px;
   border: none;
   border-radius: 100%;
 
@@ -25,16 +28,17 @@ const hover = `
 export const Container = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
   justify-content: center;
   align-items: center;
   margin: auto;
-  max-width: 390px;
+  width: 360px;
   padding: 15px;
   gap: 6px;
 
   @media (min-width: 920px) {
     margin: 0;
-    min-width: 412px;
+    width: 412px;
     padding: ${8 * 1.3}px;
     gap: ${6 * 1.2}px;
   }
@@ -45,8 +49,8 @@ export const Button = styled.button`
   background-color: #2f2f2f;
 
   @media (min-width: 920px) {
-    min-width: ${80 * 1.2}px;
-    min-height: ${80 * 1.2}px;
+    width: ${80 * 1.2}px;
+    height: ${80 * 1.2}px;
     font-size: ${40 * 1.2}px;
   }
 
@@ -58,8 +62,8 @@ export const ButtonOpperation = styled.button`
   background-color: #3D3F4A;
 
   @media (min-width: 920px) {
-    min-width: ${80 * 1.2}px;
-    min-height: ${80 * 1.2}px;
+    width: ${80 * 1.2}px;
+    height: ${80 * 1.2}px;
     font-size: ${40 * 1.2}px;
   }
 
@@ -71,8 +75,8 @@ export const ButtonResult = styled.button`
   background-color: #003853;
 
   @media (min-width: 920px) {
-    min-width: ${80 * 1.2}px;
-    min-height: ${80 * 1.2}px;
+    width: ${80 * 1.2}px;
+    height: ${80 * 1.2}px;
     font-size: ${40 * 1.2}px;
   }
 
@@ -81,7 +85,7 @@ export const ButtonResult = styled.button`
 
 export const ButtonAC = styled.button`
   ${commonStyles}
-  min-width: 250px;
+  width: 250px;
   margin-right: 2px;
   background-color: #6d4b88;
   border-radius: 50px;
@@ -96,15 +100,15 @@ export const ButtonAC = styled.button`
 
 export const ButtonZero = styled.button`
   ${commonStyles}
-  min-width: 165px;
+  width: 165px;
   margin-right: 1px;
   background-color: #2f2f2f;
   border-radius: 50px;
 
   @media (min-width: 920px) {
-    min-width: ${165 * 1.2}px;
+    width: ${165 * 1.2}px;
     margin-right: ${1 * 1.2}px;
-    min-height: ${80 * 1.2}px;
+    height: ${80 * 1.2}px;
   }
 
   ${hover}

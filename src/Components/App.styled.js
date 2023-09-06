@@ -7,7 +7,7 @@ export const Container = styled.div`
   padding-left: 1px;
   padding-right: 1px;
 
-  min-width: 390px;
+  width: 390px;
   background-color: #141414;
 
   @media (min-width: 920px) {
