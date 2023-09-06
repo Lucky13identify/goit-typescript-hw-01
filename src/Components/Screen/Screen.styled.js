@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
 const commonStyles = `
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: right;
 
   font-family: Roboto;
@@ -34,8 +34,7 @@ export const Container = styled.div`
   border-radius: 0 0 20px 20px;
 
   @media (min-width: 920px) {
-    height: ${230 * 3}px;
-    width: ${190 * 3}px;
+    height: 600px;
     padding: ${15 * 1.3}px;
   }
 `;
@@ -50,6 +49,7 @@ export const NumberText = styled.div`
   @media (min-width: 920px) {
     margin-top: ${40 * 1.3}px;
     font-size: ${80 * 1.3}px;
+    width: 510px;
   }
 
   &::after {

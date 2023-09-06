@@ -26,15 +26,16 @@ export const Container = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   margin: auto;
   padding: 15px;
   gap: 6px;
 
   @media (min-width: 920px) {
     margin: 0;
-    width: ${418 * 1.3}px;
+    width: 412px;
     padding: ${8 * 1.3}px;
-    gap: ${6 * 1.3}px;
+    gap: ${6 * 1.2}px;
   }
 `;
 
@@ -43,9 +44,9 @@ export const Button = styled.button`
   background-color: #2f2f2f;
 
   @media (min-width: 920px) {
-    width: ${100 * 1.3}px;
-    height: ${100 * 1.3}px;
-    font-size: ${40 * 1.3}px;
+    width: ${80 * 1.2}px;
+    height: ${80 * 1.2}px;
+    font-size: ${40 * 1.2}px;
   }
 
   ${hover}
@@ -56,9 +57,9 @@ export const ButtonOpperation = styled.button`
   background-color: #3D3F4A;
 
   @media (min-width: 920px) {
-    width: ${100 * 1.3}px;
-    height: ${100 * 1.3}px;
-    font-size: ${40 * 1.3}px;
+    width: ${80 * 1.2}px;
+    height: ${80 * 1.2}px;
+    font-size: ${40 * 1.2}px;
   }
 
   ${hover}
@@ -69,9 +70,9 @@ export const ButtonResult = styled.button`
   background-color: #003853;
 
   @media (min-width: 920px) {
-    width: ${100 * 1.3}px;
-    height: ${100 * 1.3}px;
-    font-size: ${40 * 1.3}px;
+    width: ${80 * 1.2}px;
+    height: ${80 * 1.2}px;
+    font-size: ${40 * 1.2}px;
   }
 
   ${hover}
@@ -85,8 +86,8 @@ export const ButtonAC = styled.button`
   border-radius: 50px;
 
   @media (min-width: 920px) {
-    width: ${311 * 1.3}px;
-    margin-right: ${1 * 1.3}px;
+    width: ${250 * 1.2}px;
+    margin-right: ${1 * 1.2}px;
   }
 
   ${hover}
@@ -100,9 +101,9 @@ export const ButtonZero = styled.button`
   border-radius: 50px;
 
   @media (min-width: 920px) {
-    width: ${205 * 1.3}px;
-    margin-right: ${1 * 1.3}px;
-    height: ${100 * 1.3}px;
+    width: ${165 * 1.2}px;
+    margin-right: ${1 * 1.2}px;
+    height: ${80 * 1.2}px;
   }
 
   ${hover}

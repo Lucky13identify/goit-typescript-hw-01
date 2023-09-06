@@ -13,7 +13,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    min-width: ${412 * 3}px;
+    width: 1000px;
     border-radius: 0 0 20px 20px;
   }
 `;

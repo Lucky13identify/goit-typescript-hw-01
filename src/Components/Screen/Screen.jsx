@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Container, NumberText, NumberResult } from './Screen.styled';
+import { sliceText } from 'Helpers/SliceText';
 
 export const Screen = ({ task, result }) => {
   const [isButtonPressed, setIsButtonPressed] = useState(false);
@@ -26,18 +27,12 @@ export const Screen = ({ task, result }) => {
     };
   }, []);
 
-  const reversedText = task.split('').reverse().join('');
-
-  const truncatedReversedText =
-    reversedText.length > 8 ? reversedText.slice(0, 8) + '...' : reversedText;
-
-  const truncatedText = truncatedReversedText.split('').reverse().join('');
   return (
     <Container>
       <NumberText pressed={isButtonPressed.toString()}>
-        {task ? truncatedText : 0}
+        {task ? sliceText(task) : 0}
       </NumberText>
-      <NumberResult>{result}</NumberResult>
+      <NumberResult>{sliceText(result)}</NumberResult>
     </Container>
   );
 };
