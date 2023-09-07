@@ -26,5 +26,3 @@
 
 7. If the user receives a long response, they can scroll to view it in its
    entirety. ![Scroll](./imagesForReadme/Scroll.png)
-
-dfdffd
