@@ -5,7 +5,8 @@ export const Container = styled.div`
   box-sizing: border-box;
   padding-left: 1px;
   padding-right: 1px;
-  width: 410px;
+  width: 412px;
+
   background-color: #141414;
 
   @media (min-width: 920px) {
@@ -13,6 +14,7 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
     width: 1000px;
+
     border-radius: 0 0 20px 20px;
   }
 `;

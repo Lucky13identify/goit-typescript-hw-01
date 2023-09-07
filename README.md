@@ -10,7 +10,11 @@
 3. To perform multiplication using the keyboard, use the 'X' key, also known as
    'Ч'. It doesn't matter in which language the key is used; multiplication will
    work. This feature is designed for convenience, especially if the user
-   forgets to switch the keyboard layout.
+   forgets to switch the keyboard layout. To obtain the result using the
+   keyboard, you need to press "=", and you can input a comma as usual.
+   Additionally, you can input a comma using the Shift + 6 key combination or
+   the ENG key followed by "<". The division key is "/". To clear the result,
+   press "Backspace".
 
 4. Keyboard focus indicators have been added to the styles so that users can see
    which keys they are pressing. ![Hover](./imagesForReadme//Hover.png)
