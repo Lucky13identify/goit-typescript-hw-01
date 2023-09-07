@@ -25,4 +25,4 @@
 6. Heroku is available for deploying the application.
 
 7. If the user receives a long response, they can scroll to view it in its
-   entirety. ![Scroll](./imagesForReadme/Scroll.png) sdsdsd kjss
+   entirety. ![Scroll](./imagesForReadme/Scroll.png) sdsdsd kjss ывыв
