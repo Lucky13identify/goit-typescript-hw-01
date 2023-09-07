@@ -15,7 +15,7 @@ export const App = () => {
 
   const conditions =
     lastChar !== '×' &&
-    lastChar !== '/' &&
+    lastChar !== '÷' &&
     lastChar !== '+' &&
     lastChar !== '-' &&
     lastChar !== ',';
@@ -25,7 +25,7 @@ export const App = () => {
     lastChar !== ',' &&
     Number(lastChar) &&
     !task.endsWith('×') &&
-    !task.endsWith('/') &&
+    !task.endsWith('÷') &&
     !task.endsWith('+') &&
     !task.endsWith('-');
 
