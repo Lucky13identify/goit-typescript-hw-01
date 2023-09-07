@@ -64,7 +64,7 @@ export const NumberResult = styled.div`
   ${commonStyles}
 
   margin-top: 10px;
-  overflow: scroll;
+  overflow: auto;
 
   font-size: 40px;
 
