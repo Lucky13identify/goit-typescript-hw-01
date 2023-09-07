@@ -1,31 +1,22 @@
 {
+  "name": "calculator",
   "version": 2,
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=0, must-revalidate"
-      },
-      "continue": true
+      "dest": "/index.html"
     }
   ],
-  "env": {
-    "GITHUB_TOKEN": "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"
-  },
-  "github": {
-    "silent": false,
-    "silentComment": true,
-    "autoComments": true,
-    "autoIssueComments": true
-  },
-  "alias": {
-    "your-alias.vercel.app": "calculator-lucky13identify.vercel.app"
+
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
   }
 }
