@@ -27,7 +27,8 @@
 6. Responsive design is present, which changes the appearance of the calculator
    when transitioning to a larger screen.
 
-7. About her
+7. Vercel link:![Vercel live](https://calculator-lucky13identify.vercel.app/)
+   Gh-pages link:![gh-pages](https://lucky13identify.github.io/calculator/)
 
 8. If the user receives a long response, they can scroll to view it in its
    entirety. ![Scroll](./imagesForReadme/Scroll.png) sdsdsd kjss ывыв kdfmdk
