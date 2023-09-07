@@ -1,5 +1,5 @@
 {
-  "name": "calculator",
+  "name": "my-project",
   "version": 2,
   "builds": [
     {
@@ -7,16 +7,24 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
-
+  "env": {
+    "YOUR_ENV_VARIABLE": "your-value"
+  },
   "build": {
     "env": {
       "NODE_ENV": "production"
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/main/index.html",
+      "condition": { "branch": "main" }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/gh-pages/index.html",
+      "condition": { "branch": "gh-pages" }
+    }
+  ]
 }
