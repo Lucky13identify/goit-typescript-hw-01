@@ -6,6 +6,12 @@
     "start": "web-dev-server --node-resolve --open --watch",
     "lint:js": "eslint src/**/*.{js,ts}"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
