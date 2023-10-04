@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "web-dev-server --node-resolve --open --watch"
+    "start": "web-dev-server --node-resolve --open --watch",
+    "lint:js": "eslint src/**/*.{js,jsx}"
   },
   "keywords": [],
   "author": "",
