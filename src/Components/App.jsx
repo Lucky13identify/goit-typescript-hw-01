@@ -33,12 +33,26 @@ export const App = () => {
   const giveResult = () => {
     try {
       let mathExpression = mathTask.replace(/,/g, '.');
+
       const result = evaluate(mathExpression);
+
       const formattedResult = result.toLocaleString('ru-RU');
+
       setResult(formattedResult);
     } catch (error) {
       Notiflix.Notify.warning('Error expression. Try again!');
     }
+  };
+
+  const changeState = (stringKey, optionalKey = stringKey) => {
+    setTask(prevState => prevState + stringKey);
+    setMathTask(prevState => prevState + optionalKey);
+  };
+
+  const clearState = () => {
+    setTask('');
+    setResult('');
+    setMathTask('');
   };
 
   useEffect(() => {
@@ -46,37 +60,24 @@ export const App = () => {
       const key = event.key;
 
       if (Number(key) || (key === '0' && task !== '')) {
-        setTask(prevState => prevState + key);
-        setMathTask(prevState => prevState + key);
+        changeState(key);
       } else if (key === 'Backspace') {
-        setTask('');
-        setResult('');
-        setMathTask('');
-      } else if (key === 'x' || key === 'X' || key === 'ч' || key === 'Ч') {
-        if (conditions) {
-          setTask(prevState => prevState + '×');
-          setMathTask(prevState => prevState + '*');
-        }
-      } else if (key === '/') {
-        if (conditions) {
-          setTask(prevState => prevState + '÷');
-          setMathTask(prevState => prevState + '/');
-        }
-      } else if (key === '-') {
-        if (conditions) {
-          setTask(prevState => prevState + key);
-          setMathTask(prevState => prevState + key);
-        }
-      } else if (key === '+') {
-        if (conditions) {
-          setTask(prevState => prevState + key);
-          setMathTask(prevState => prevState + key);
-        }
-      } else if (key === ',') {
-        if (specialContitions) {
-          setTask(prevState => prevState + key);
-          setMathTask(prevState => prevState + '.');
-        }
+        clearState();
+      } else if (
+        (conditions && key === 'x') ||
+        key === 'X' ||
+        key === 'ч' ||
+        key === 'Ч'
+      ) {
+        changeState('×', '*');
+      } else if (conditions && key === '/') {
+        changeState('÷', '/');
+      } else if (conditions && key === '-') {
+        changeState(key);
+      } else if (conditions && key === '+') {
+        changeState(key);
+      } else if (specialContitions && key === ',') {
+        changeState(key, '.');
       } else if (key === '=') {
         giveResult();
       }
@@ -87,46 +88,28 @@ export const App = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [conditions, giveResult, lastChar, mathTask, specialContitions, task]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [giveResult]);
 
   const handleButtonClick = e => {
     const value = e.target.textContent;
 
     if (Number(value) || (value === '0' && task !== '')) {
-      setTask(prevState => prevState + value);
-      setMathTask(prevState => prevState + value);
+      changeState(value);
     } else if (value === '0') {
-      setTask(prevState => prevState + value);
-      setMathTask(prevState => prevState + value);
+      changeState(value);
     } else if (value === 'AC') {
-      setTask('');
-      setResult('');
-      setMathTask('');
-    } else if (value === '×') {
-      if (conditions) {
-        setTask(prevState => prevState + value);
-        setMathTask(prevState => prevState + '*');
-      }
-    } else if (value === '÷') {
-      if (conditions) {
-        setTask(prevState => prevState + value);
-        setMathTask(prevState => prevState + '/');
-      }
-    } else if (value === '-') {
-      if (conditions) {
-        setTask(prevState => prevState + value);
-        setMathTask(prevState => prevState + value);
-      }
-    } else if (value === '+') {
-      if (conditions) {
-        setTask(prevState => prevState + value);
-        setMathTask(prevState => prevState + value);
-      }
-    } else if (value === ',') {
-      if (specialContitions) {
-        setTask(prevState => prevState + value);
-        setMathTask(prevState => prevState + '.');
-      }
+      clearState();
+    } else if (conditions && value === '×') {
+      changeState(value, '*');
+    } else if (conditions && value === '÷') {
+      changeState(value, '/');
+    } else if (conditions && value === '-') {
+      changeState(value);
+    } else if (conditions && value === '+') {
+      changeState(value);
+    } else if (specialContitions && value === ',') {
+      changeState(value, '.');
     } else if (value === '=') {
       giveResult();
     }

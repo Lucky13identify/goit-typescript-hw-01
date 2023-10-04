@@ -53,7 +53,8 @@ export const NumberText = styled.div`
     content: '';
     height: 70px;
     width: 3px;
-    display: ${({ pressed }) => (pressed === 'true' ? 'inline-block' : 'none')};
+    display: ${({ $pressed }) =>
+      $pressed === 'true' ? 'inline-block' : 'none'};
 
     background-color: #778899;
     animation: ${blinkAnimation} 1.7s infinite;

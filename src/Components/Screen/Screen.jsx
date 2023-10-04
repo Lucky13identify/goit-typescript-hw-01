@@ -12,6 +12,7 @@ export const Screen = ({ task, result }) => {
     document.addEventListener('keydown', e => {
       if (Number(e.key)) {
         setIsButtonPressed(true);
+
         clearTimeout(timeoutId);
         // eslint-disable-next-line react-hooks/exhaustive-deps
         timeoutId = setTimeout(() => {
@@ -30,7 +31,7 @@ export const Screen = ({ task, result }) => {
 
   return (
     <Container>
-      <NumberText pressed={isButtonPressed.toString()}>
+      <NumberText $pressed={isButtonPressed.toString()}>
         {task ? sliceText(formatStringWithNumbers(task)) : 0}
       </NumberText>
       <NumberResult>{formatStringWithNumbers(result)}</NumberResult>
